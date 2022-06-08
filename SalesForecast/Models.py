@@ -13,15 +13,14 @@ def get_model( model_name):
     assert (model_name.upper() in available_models), "cannot get [{}] model".format(model_name)
     if model_name == KNN:
         return get_knn()
-    if model_name == LINRRG:
-        return get_lin_reg()
     if model_name == DECISIONTREE:
         return get_dtree()
+    if model_name == RANDOMFOREST:
+        return get_randomForest()
 
-def get_lin_reg():
-    lin_reg_model = LinearRegression()
-    return lin_reg_model
-
+def get_randomForest():
+    randomForest_model = RandomForestRegressor(n_estimators=400, max_depth=15, n_jobs=5)
+    return randomForest_model
 
 def get_knn():
     knn_model = KNeighborsRegressor(n_neighbors=10, n_jobs=4)
