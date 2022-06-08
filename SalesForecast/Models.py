@@ -17,9 +17,6 @@ def get_model( model_name):
         return get_lin_reg()
     if model_name == DECISIONTREE:
         return get_dtree()
-    if model_name == RANDOMFOREST:
-        return get_randomForest()
-
 
 def get_lin_reg():
     lin_reg_model = LinearRegression()
@@ -34,12 +31,6 @@ def get_knn():
 def get_dtree():
     dtree_model = DecisionTreeRegressor(random_state=0)
     return dtree_model
-
-
-def get_randomForest():
-    randomForest_model = RandomForestRegressor(n_estimators=400, max_depth=15, n_jobs=5)
-    return randomForest_model
-
 
 def get_xgb():
     # xgb_model = XGBRegressor(objective='reg:linear', nthread=4, n_estimators=500, max_depth=6, learning_rate=0.5)
